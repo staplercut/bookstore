@@ -1,17 +1,22 @@
 {% extends 'index/base.html' %}
 
 {% block content %}
+        <h2>Manage page for staff</h2><br>
+
         {% if user.is_staff %}
-            <h2>Manage book data</h2><br>
+
+            <h3><a href="{% url 'books:book_new' %}" title="Add book" class="top-menu">Add book</a></h3>
+            <h3><a href="{% url 'authors:author_new' %}" title="Add author" class="top-menu">Add author</a></h3><br>
+
+            <h3>Manage book data:</h3><br>
+
             {% for book in books_all %}
                 <div class="books_index">
-                    <h2><a href="{% url 'books:book_edit' pk=book.pk %}">{{ book.title }}</a></h2>
-    {#                <p>Authors: {% for author in book.authors.all %}{{ author }}{% if author != book.authors.last %}{{ ", " }}{% endif %}{% endfor %}.</p>#}
-    {#                <p>ISBN: {{ book.isbn}}</p>#}
-    {#                <p><b>Price</b>: {{ book.price }}</p>#}
+                    <h3><a href="{% url 'books:book_detail' pk=book.pk %}">{{ book.title }}</a></h3>
                 </div>
              {% endfor %}
         {% else %}
             <p>You bust belong to staff to view this page.</p>
+        {% endif %}
 
 {% endblock %}

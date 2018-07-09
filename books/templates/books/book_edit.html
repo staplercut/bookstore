@@ -1,24 +1,18 @@
 {% extends 'index/base.html' %}
 
 {% block content %}
-
+{% if user.is_staff %}
   <h2></h2>
     
     <form method="post" enctype="multipart/form-data">
-    {% csrf_token %}
-    {% for field in form %}
-      <p>
-        {{ field.label_tag }}<br>
-        {{ field }}
-        {% if field.help_text %}
-          <small style="color: grey">{{ field.help_text }}</small>
-        {% endif %}
-        {% for error in field.errors %}
-          <p style="color: red">{{ error }}</p>
-        {% endfor %}
-      </p>
-    {% endfor %}
-    <button type="submit">Submit</button>
-  </form>
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Submit</button>
+    </form>
+    {% if book %}
+        <a href="{% url 'books:book_delete' pk=book.pk %}" class="btn btn-default" onclick="return confirm('Delete entry?')">Delete</a>
+    {% endif %}
+
+{% endif %}
 
 {% endblock %}

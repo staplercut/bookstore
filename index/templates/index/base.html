@@ -22,11 +22,9 @@
     </head>
     <body>
 		<div class="page-header">
-			{% if user.is_authenticated %}
-				<a href="{% url 'books:book_new' %}" title="Add book" class="top-menu"><span class="glyphicon glyphicon-book"></span></a>
-                <a href="{% url 'authors:author_new' %}" title="Add author" class="top-menu"><span class="glyphicon glyphicon-pencil"></span></a>
-			{% endif %}
+
 			<h1><a href="/">Book store</a></h1>
+            <>
 		</div>
 		<div class="content container">
 				<div class="row">

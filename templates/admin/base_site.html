@@ -9,5 +9,5 @@
 {% endblock %}
 
 {% block nav-global %}
-    <a href="{% url 'books:book_manage' %}" onclick="confirm('are you sure to leave admin page?')">go to app manage page</a>
+    <a href="{% url 'books:book_manage' %}" onclick="return confirm('Are you sure want to leave admin page?')">go to app manage page</a>
 {% endblock %}

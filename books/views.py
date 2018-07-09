@@ -35,7 +35,7 @@ def book_edit(request, pk):
     else:
         authors = book.authors.all()
         form = BookForm(instance=book, initial={'author_input': authors})
-        return render(request, 'books/book_edit.html', {'form': form})
+        return render(request, 'books/book_edit.html', {'form': form, 'book': book})
 
 
 def book_detail(request, pk):
