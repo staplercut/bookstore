@@ -1,5 +1,9 @@
 from django import forms
 from .models import Book, Author
+from django.contrib.admin.widgets import AdminDateWidget
+from django.forms.widgets import SelectDateWidget
+from django.utils.timezone import datetime
+from django.utils import timezone
 
 
 import string
@@ -18,6 +22,8 @@ class BookForm(forms.ModelForm):
         required=True
     )
 
+    publish_date = forms.DateField(widget=SelectDateWidget(years=range(datetime.now().year, 1900, -1)), initial=timezone.now())
+
     # unique validation
     def clean_title(self):
         pre_title = self.cleaned_data['title']
@@ -25,15 +31,3 @@ class BookForm(forms.ModelForm):
         return title
 
 
-class AuthorForm(forms.ModelForm):
-    name = forms.CharField(label='Name', required=True)
-
-    class Meta:
-        model = Author
-        fields = ('name', 'tags')
-
-    # unique validation
-    def clean_name(self):
-        pre_name = self.cleaned_data['name']
-        name = ' '.join(w.capitalize() for w in pre_name.translate(str.maketrans('', '', string.punctuation)).split())
-        return name

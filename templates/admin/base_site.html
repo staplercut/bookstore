@@ -1,0 +1,13 @@
+{% extends "admin/base.html" %}
+
+{% block title %}{{ title }} | BookApp Admin {% endblock %}
+
+{% block branding %}
+  <h1 id="site-name">
+    BookApp
+  </h1>
+{% endblock %}
+
+{% block nav-global %}
+    <a href="{% url 'books:book_manage' %}" onclick="confirm('are you sure to leave admin page?')">go to app manage page</a>
+{% endblock %}

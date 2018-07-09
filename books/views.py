@@ -2,6 +2,7 @@ from django.shortcuts import render, get_object_or_404, redirect
 from django.utils import timezone
 from books.models import Author, Book
 from .forms import BookForm
+import datetime
 
 
 def book_new(request):
@@ -40,6 +41,11 @@ def book_edit(request, pk):
 def book_detail(request, pk):
     book = get_object_or_404(Book, pk=pk)
     return render(request, 'books/book_detail.html', {'book': book})
+
+
+def book_manage(request):
+    books_all = Book.objects.all()
+    return render(request, 'books/book_manage.html', {'books_all': books_all})
 
 
 def book_delete(request, pk):

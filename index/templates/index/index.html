@@ -1,10 +1,15 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+{% extends 'index/base.html' %}
 
-</body>
-</html>
+{% block content %}
+
+        <h2></h2>
+        {% for book in books_all %}
+            <div class="books_index">
+                <h2><a href="{% url 'books:book_detail' pk=book.pk %}">{{ book.title }}</a></h2>
+                <p><b>Authors:</b> {% for author in book.authors.all %}{{ author }}{% if author != book.authors.last %}{{ ", " }}{% endif %}{% endfor %}.</p>
+                <p>ISBN: {{ book.isbn}}</p>
+                <p>Price: {{ book.price }}</p>
+            </div>
+        {% endfor %}
+
+{% endblock %}

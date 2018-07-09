@@ -1,10 +1,17 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+{% extends 'index/base.html' %}
+{% load staticfiles %}
 
-</body>
-</html>
+{% block content %}
+    <div class="book-detail">
+		<a class="btn btn-default" href="{% url 'books:book_edit' pk=book.pk %}"><span class="glyphicon glyphicon-pencil"></span></a>
+
+		<h1>{{ book.title }}</h1>
+        <br />
+        <p><b>Authors:</b> {% for author in book.authors.all %}<a href="{% url 'authors:author_detail' pk=author.pk %}">{{ author }}</a>{% if author != book.authors.last %}{{ ", " }}{% endif %}{% endfor %}.</p>
+        <p><b>ISBN:</b> {{ book.isbn}}</p>
+        <p><b>Publish date:</b> {{ book.publish_date}}</p>
+        <p><b>Price:</b> {{ book.price}}</p>
+        <a href="{% url 'books:book_delete' pk=book.pk %}" class="btn btn-default">Delete</a>
+    </div>
+
+{% endblock %}

@@ -1,0 +1,11 @@
+{% extends 'index/base.html' %}
+
+{% block content %}
+    <div class="author-detail">
+		<a class="btn btn-default" href="{% url 'authors:author_edit' pk=author.pk %}"><span class="glyphicon glyphicon-pencil"></span></a>
+
+		<h1>{{ author.name }}</h1>
+        <a href="{% url 'authors:author_delete' pk=author.pk %}" class="btn btn-default">Delete</a>
+    </div>
+
+{% endblock %}
