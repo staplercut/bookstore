@@ -8,23 +8,18 @@
         <link href="https://fonts.googleapis.com/css?family=Tangerine&subset=latin,cyrillic" rel="stylesheet" type="text/css">
 		<link rel="stylesheet" href="{% static 'css/index.css' %}">
         <title>Book store</title>
-{#        {% if user.is_superuser %}#}
-{#            <div class="logged-user">#}
-{#                <a href="{% url 'books:editpage' %}">Welcome, {{ user.name }}!  </a>#}
-{#                <a href="{% url 'accounts:logout_view' %}">Logout</a>#}
-{#            </div>#}
-{#        {% else  %}#}
-{#            <div class="logged-user">#}
-{#                <a href="{% url 'accounts:login_view' %}">Login</a>#}
-{#                <a href="{% url 'accounts:signup' %}">Signup</a>#}
-{#            </div>#}
-{#        {% endif %}#}
+
+        {% if user.is_superuser %}
+                <a href="{% url 'logs:showlastten' %}">HTTP request log</a><br>
+                <a href="{% url 'logs:showbooklog' %}">Book model change log</a>
+        {% endif  %}
+
     </head>
     <body>
 		<div class="page-header">
 
 			<h1><a href="/">Book store</a></h1>
-            <>
+
 		</div>
 		<div class="content container">
 				<div class="row">

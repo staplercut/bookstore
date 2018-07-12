@@ -1,0 +1,13 @@
+{% extends 'index/base.html' %}
+
+{% block content %}
+
+    <h3>Last 10 book model changes</h3><br>
+
+    {% for model in book_log %}
+        {% for field, value in model.fields.items %}
+            <b>{{ field }}:</b> {{ value }}
+        {% endfor %}<br><br>
+    {% endfor %}
+
+{% endblock %}

@@ -6,7 +6,14 @@
         {% for book in books_all %}
             <div class="books_index">
                 <h2><a href="{% url 'books:book_detail' pk=book.pk %}">{{ book.title }}</a></h2>
-                <p><b>Authors:</b> {% for author in book.authors.all %}{{ author }}{% if author != book.authors.last %}{{ ", " }}{% endif %}{% endfor %}.</p>
+                <p><b>Authors:</b>
+            {% for author in book.authors.all %}
+                <a href="{% url 'authors:author_detail' pk=author.pk %}">{{ author }}</a>
+                {% if author != book.authors.last %}
+                    {{ ", " }}
+                {% endif %}
+            {% endfor %}
+        </p>
                 <p>ISBN: {{ book.isbn}}</p>
                 <p>Price: {{ book.price }}</p>
             </div>

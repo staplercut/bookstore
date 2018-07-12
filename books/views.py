@@ -28,8 +28,9 @@ def book_edit(request, pk):
         form = BookForm(request.POST, instance=book)
         if form.is_valid():
             authors = form.cleaned_data['author_input']
+            book = form.save(commit=False)
             book.authors.set(authors)
-            book = form.save()
+            book.save()
             return redirect('books:book_detail', pk=book.pk)
         return render(request, 'books/book_edit.html', {'form': form})
     else:

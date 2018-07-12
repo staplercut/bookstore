@@ -17,7 +17,6 @@
         <p><b>ISBN:</b> {{ book.isbn}}</p>
         <p><b>Publish date:</b> {{ book.publish_date}}</p>
         <p><b>Price:</b> {{ book.price}}</p>
-        <a href="{% url 'books:book_edit' pk=book.pk %}"><span class="btn btn-default">Edit</span></a>
     </div>
 
 {% endblock %}

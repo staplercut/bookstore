@@ -1,0 +1,11 @@
+{% extends 'index/base.html' %}
+
+{% block content %}
+
+    <h3>Last 10 HTTP requests</h3><br>
+
+    {% for req in last_ten %}
+        <h4>{{ req.date }}:</h4> <p>{{ req|linebreaks }}</p>
+    {% endfor %}
+
+{% endblock %}

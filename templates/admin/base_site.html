@@ -11,3 +11,8 @@
 {% block nav-global %}
     <a href="{% url 'books:book_manage' %}" onclick="return confirm('Are you sure want to leave admin page?')">go to app manage page</a>
 {% endblock %}
+
+
+{% block copyright %}
+  Copyright &copy; 2013 Client<br>Developed by <a href="http://yoursite.com" target="_blank">YourName</a>
+{% endblock %}
