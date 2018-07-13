@@ -40,7 +40,6 @@ INSTALLED_APPS = [
     'index',
     'authors',
     'books',
-    'accounts',
     'logs',
     'copyright',
 ]
