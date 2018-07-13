@@ -6,9 +6,9 @@ from django.utils import timezone
 class Book(models.Model):
     title = models.CharField(max_length=200, unique=True)
     authors = models.ManyToManyField(Author, blank=True)
-    isbn = models.SmallIntegerField()
+    isbn = models.CharField(max_length=13, blank=True, unique=True)
     publish_date = models.DateField(default=timezone.now, blank=True)
-    price = models.DecimalField(max_digits=6, decimal_places=2)
+    price = models.DecimalField(max_digits=6, decimal_places=2, blank=True)
 
     def display_authors(self):
         return self.title + ': ' + ', '.join([author.name for author in self.authors.all()])

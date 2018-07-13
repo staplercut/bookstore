@@ -1,0 +1,23 @@
+[
+  {
+    "model": "authors.author",
+    "pk": 1,
+    "fields": {
+      "name": "Author 1"
+    }
+  },
+  {
+    "model": "authors.author",
+    "pk": 2,
+    "fields": {
+      "name": "Author 2"
+    }
+  },
+  {
+    "model": "authors.author",
+    "pk": 3,
+    "fields": {
+      "name": "Author 3"
+    }
+  }
+]

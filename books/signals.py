@@ -17,7 +17,6 @@ def audit_log_delete(instance, **kwargs):
 @receiver(post_save, sender=Book)
 def audit_log_create(instance, created, **kwargs):
     if created:
-        print('created')
         action = 'create'
         model_id = instance.pk
         fields = Book._meta.get_fields()
@@ -33,7 +32,6 @@ def audit_log_create(instance, created, **kwargs):
 @receiver(m2m_changed, sender=Book.authors.through)
 def m2m_change(**kwargs):
     m2m_action = kwargs.pop('action', None)
-    print('m2m_action', m2m_action)
     new_instance = kwargs['instance']
     pk_set = kwargs['pk_set']
     if m2m_action == "pre_add":

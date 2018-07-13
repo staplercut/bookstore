@@ -1,0 +1,22 @@
+[
+  {
+    "model": "books.book",
+    "pk": 1,
+    "fields": {
+      "title": "Book 1",
+      "authors": [1,2],
+      "isbn": "111-11-11-111111-1",
+      "price": "19.99"
+    }
+  },
+  {
+    "model": "books.book",
+    "pk": 2,
+    "fields": {
+      "title": "Book 2",
+      "authors": [1,3],
+      "isbn": "222-22-22-222222-2",
+      "price": "20"
+    }
+  }
+]
