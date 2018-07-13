@@ -1,0 +1,24 @@
+h1 a {
+	color: dimgrey;
+    font-size: 50pt;
+}
+
+.page-header {
+    background-color: lightgreen;
+    margin-top: 0;
+    padding: 20px 20px 20px 40px;
+}
+
+.top-menu, .top-menu:hover, .top-menu:visited {
+    color: #ffffff;
+    float: right;
+    margin-right: 25px;
+    margin-top: 25px;
+}
+
+.copyright {
+    position: relative;
+    bottom: 0%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%);
+}

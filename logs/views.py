@@ -10,7 +10,7 @@ def showlastten(request):
 
 
 def showbooklog(request):
-    #book_log = BookChangeLogs.objects.all().values().order_by('-id')[:10]
-    book_log = serializers.serialize("python", BookChangeLogs.objects.all())
+    req = BookChangeLogs.objects.all().order_by('-id')[:20]
+    book_log = serializers.serialize("python", req)
 
     return render(request, 'logs/showbooklog.html', {'book_log': book_log})

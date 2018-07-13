@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'books',
     'accounts',
     'logs',
+    'copyright',
 ]
 
 MIDDLEWARE = [
@@ -105,6 +106,8 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
+COPYRIGHT_START_YEAR = 2018
+
 
 # Internationalization
 # https://docs.djangoproject.com/en/2.0/topics/i18n/
@@ -124,3 +127,5 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/2.0/howto/static-files/
 
 STATIC_URL = '/static/'
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+

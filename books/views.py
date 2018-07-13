@@ -52,4 +52,5 @@ def book_manage(request):
 def book_delete(request, pk):
     book = get_object_or_404(Book, pk=pk)
     book.delete()
-    return redirect('index:index')
+    books_all = Book.objects.all()
+    return render(request, 'books/book_manage.html', {'books_all': books_all})
